@@ -18,7 +18,8 @@ Gem::Specification.new do |spec|
   spec.test_files    = spec.files.grep(%r{^(spec)/})
   spec.require_paths = ['lib']
 
-  spec.add_runtime_dependency 'activerecord', '>= 3.0.0'
+  spec.add_runtime_dependency 'activerecord', '>= 4.0.0'
+  spec.add_runtime_dependency 'activerecord-import', '~> 0.10.0'
   spec.add_runtime_dependency 'faraday'
   spec.add_runtime_dependency 'rubyzip'
 
@@ -31,7 +32,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'sqlite3' if RUBY_PLATFORM != 'java'
   spec.add_development_dependency 'guard'
   spec.add_development_dependency 'guard-rspec'
-  spec.add_development_dependency 'pg' if RUBY_PLATFORM != 'java'
+  #spec.add_development_dependency 'pg' if RUBY_PLATFORM != 'java'
   spec.add_development_dependency 'rake'
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'shoulda-matchers'

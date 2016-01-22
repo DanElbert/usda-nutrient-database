@@ -14,8 +14,6 @@ module UsdaNutrientDatabase
         end
       end
 
-      private
-
       attr_reader :directory
 
       def extract_row(row)
