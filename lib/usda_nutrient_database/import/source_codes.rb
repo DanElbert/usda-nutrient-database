@@ -1,6 +1,16 @@
 module UsdaNutrientDatabase
   module Import
-    module SourceCodesCommon
+    class SourceCodes < Base
+
+      private
+
+      def klass
+        UsdaNutrientDatabase::SourceCode
+      end
+
+      def find_or_initialize(row)
+        UsdaNutrientDatabase::SourceCode.find_or_initialize_by(code: row[0])
+      end
 
       def columns
         [:code, :description]
@@ -12,22 +22,6 @@ module UsdaNutrientDatabase
 
       def filename
         'SRC_CD.txt'
-      end
-    end
-
-    class SourceCodes < Base
-      include SourceCodesCommon
-
-      def find_or_initialize(row)
-        UsdaNutrientDatabase::SourceCode.find_or_initialize_by(code: row[0])
-      end
-    end
-
-    class FastSourceCodes < FastBase
-      include SourceCodesCommon
-
-      def klass
-        UsdaNutrientDatabase::SourceCode
       end
     end
   end

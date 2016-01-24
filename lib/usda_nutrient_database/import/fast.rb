@@ -2,7 +2,7 @@ require 'activerecord-import'
 
 module UsdaNutrientDatabase
   module Import
-    class FastBase < Base
+    module Fast
 
       BATCH_SIZE = 1000
 
@@ -31,10 +31,30 @@ module UsdaNutrientDatabase
       def clear_table
         klass.delete_all
       end
+    end
 
-      def klass
-        raise NotImplementedError
-      end
+    class FastFoodGroups < FoodGroups
+      include Fast
+    end
+
+    class FastFoods < Foods
+      include Fast
+    end
+
+    class FastFootnotes < Footnotes
+      include Fast
+    end
+
+    class FastNutrients < Nutrients
+      include Fast
+    end
+
+    class FastSourceCodes < SourceCodes
+      include Fast
+    end
+
+    class FastWeights < Weights
+      include Fast
     end
   end
 end
